@@ -9,9 +9,9 @@ public class StickyBallFactory : Factory
     public override IBallProduct GetProduct(Vector3 position)
     {
         GameObject instance = Instantiate(productPrefab.gameObject, position, Quaternion.identity, spawnedBallParent);
-        BouncyBall newProduct = instance.GetComponent<BouncyBall>();
+        StickyBall newProduct = instance.GetComponent<StickyBall>();
 
-        newProduct.Initialize();
+        newProduct.Initialize(); 
         return newProduct;
     }
 }

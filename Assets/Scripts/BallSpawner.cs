@@ -24,20 +24,20 @@ public class BallSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(2f); // Her 2 saniyede bir bekle
+            yield return new WaitForSeconds(0.15f); 
             SpawnBall();
         }
     }
 
     private void SpawnBall()
     {
-        Factory chosenFactory = Random.value < 0.5f ? _stickyBallFactory : _bouncyBallFactory;
+        Factory chosenFactory = Random.value < 0.1f ? _stickyBallFactory : _bouncyBallFactory;
         IBallProduct spawnedProduct = chosenFactory.GetProduct(GetSpawnPos());
 
     }
 
     private Vector3 GetSpawnPos()
     {
-        return new Vector3(Random.Range(-0.05f, 0.05f), Random.Range(1f, 1.2f), Random.Range(-0.05f, 0.05f));
+        return new Vector3(Random.Range(-0.05f, 0.05f), Random.Range(2f, 2.5f), Random.Range(-0.05f, 0.05f));
     }
 }
