@@ -10,7 +10,14 @@ public class StickyBall : MonoBehaviour,IBallProduct
     public void Initialize()
     {
         gameObject.name = productName;
+        StartCoroutine(ReleaseProcess());
+    }
+    IEnumerator ReleaseProcess()
+    {
+        yield return new WaitForSeconds(10f);
+        GetComponent<PooledObject>().Release();
+
+
     }
 
-    
 }

@@ -19,6 +19,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
     [SerializeField] private uint initPoolSize;
+    [SerializeField] private uint maxPoolSize;
     [SerializeField] private PooledObject bouncyBallToPool;
     [SerializeField] private PooledObject stickyBallToPool;
     
@@ -83,8 +84,20 @@ public class ObjectPool : MonoBehaviour
     {
         //stack.Push(pooledObject);
 
-        pooledObjectList.Add(new PoolElement<PoolObjectType, PooledObject> { Key = poolObjectType, Value = pooledObject });
-        pooledObject.gameObject.SetActive(false);
+        //Destroy the object if pool is full
+        if(pooledObjectList.Count >= maxPoolSize)
+        {
+            Debug.LogWarning(pooledObject.gameObject.name + " is destroyed");
+            Destroy(pooledObject.gameObject);
+        }
+        //Return the object to the pool
+        else
+        {
+            Debug.LogWarning(pooledObject.gameObject.name + " is returned to the pool");
+            pooledObjectList.Add(new PoolElement<PoolObjectType, PooledObject> { Key = poolObjectType, Value = pooledObject });
+            pooledObject.gameObject.SetActive(false);
+        }
+        
     }
 }
 

@@ -15,7 +15,7 @@ public class BouncyBall : MonoBehaviour,IBallProduct
 
     IEnumerator ReleaseProcess()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         GetComponent<PooledObject>().Release();
 
 

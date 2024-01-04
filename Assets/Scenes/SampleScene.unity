@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2f44af0f527874f99ee7997997c7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ballSpawnInterval: 1
+  _ballSpawnInterval: 0.25
 --- !u!1 &1998045783
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,14 +698,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773cefa5c99bbe74fbce53d4fd42b283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initPoolSize: 5
+  initPoolSize: 10
+  maxPoolSize: 100
   bouncyBallToPool: {fileID: 7294961188536844831, guid: 7503f70d4de92e043a2b7196b1349b74,
     type: 3}
   stickyBallToPool: {fileID: 3640751183563499515, guid: 104bab51b0253c740a12b1a9efda32c9,
     type: 3}
-  ballToPoolList:
-  - {fileID: 7294961188536844831, guid: 7503f70d4de92e043a2b7196b1349b74, type: 3}
-  - {fileID: 3640751183563499515, guid: 104bab51b0253c740a12b1a9efda32c9, type: 3}
   pooledObjectList: []
 --- !u!4 &1998045785
 Transform:
