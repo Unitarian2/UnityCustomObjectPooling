@@ -668,6 +668,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2f44af0f527874f99ee7997997c7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ballSpawnInterval: 1
+--- !u!1 &1998045783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1998045785}
+  - component: {fileID: 1998045784}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1998045784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998045783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773cefa5c99bbe74fbce53d4fd42b283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPoolSize: 5
+  bouncyBallToPool: {fileID: 7294961188536844831, guid: 7503f70d4de92e043a2b7196b1349b74,
+    type: 3}
+  stickyBallToPool: {fileID: 3640751183563499515, guid: 104bab51b0253c740a12b1a9efda32c9,
+    type: 3}
+  ballToPoolList:
+  - {fileID: 7294961188536844831, guid: 7503f70d4de92e043a2b7196b1349b74, type: 3}
+  - {fileID: 3640751183563499515, guid: 104bab51b0253c740a12b1a9efda32c9, type: 3}
+  pooledObjectList: []
+--- !u!4 &1998045785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998045783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1999566179
 GameObject:
   m_ObjectHideFlags: 0

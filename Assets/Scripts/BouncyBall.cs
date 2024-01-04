@@ -10,7 +10,15 @@ public class BouncyBall : MonoBehaviour,IBallProduct
     public void Initialize()
     {
         gameObject.name = productName;
+        StartCoroutine(ReleaseProcess());
     }
 
-   
+    IEnumerator ReleaseProcess()
+    {
+        yield return new WaitForSeconds(5f);
+        GetComponent<PooledObject>().Release();
+
+
+    }
+
 }

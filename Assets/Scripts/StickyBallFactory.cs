@@ -8,8 +8,10 @@ public class StickyBallFactory : Factory
     [SerializeField] private Transform spawnedBallParent;
     public override IBallProduct GetProduct(Vector3 position)
     {
-        GameObject instance = Instantiate(productPrefab.gameObject, position, Quaternion.identity, spawnedBallParent);
-        StickyBall newProduct = instance.GetComponent<StickyBall>();
+        PooledObject pooledObject = ObjectPool.Instance.GetPooledObject(productPrefab.GetComponent<PooledObject>(), PoolObjectType.StickyBall);
+        pooledObject.gameObject.transform.position = position;
+        pooledObject.gameObject.transform.SetParent(spawnedBallParent);
+        StickyBall newProduct = pooledObject.gameObject.GetComponent<StickyBall>();
 
         newProduct.Initialize(); 
         return newProduct;

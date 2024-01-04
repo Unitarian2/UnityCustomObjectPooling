@@ -7,7 +7,7 @@ public class BallSpawner : MonoBehaviour
     private StickyBallFactory _stickyBallFactory;
     private BouncyBallFactory _bouncyBallFactory;
 
-    
+    [SerializeField] private float _ballSpawnInterval;
 
     void Start()
     {
@@ -24,14 +24,14 @@ public class BallSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.15f); 
+            yield return new WaitForSeconds(_ballSpawnInterval); 
             SpawnBall();
         }
     }
 
     private void SpawnBall()
     {
-        Factory chosenFactory = Random.value < 0.1f ? _stickyBallFactory : _bouncyBallFactory;
+        Factory chosenFactory = Random.value < 0.3f ? _stickyBallFactory : _bouncyBallFactory;
         IBallProduct spawnedProduct = chosenFactory.GetProduct(GetSpawnPos());
 
     }
