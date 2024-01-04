@@ -4,20 +4,9 @@ using System.Linq;
 using UnityEngine;
 
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool : Singleton<ObjectPool>
 {
-    public static ObjectPool Instance;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    
     [SerializeField] private uint initPoolSize;
     [SerializeField] private uint maxPoolSize;
     [SerializeField] private PooledObject bouncyBallToPool;
@@ -71,32 +60,42 @@ public class ObjectPool : MonoBehaviour
             newInstance.Pool = this;
             return newInstance;
         }
-        // otherwise, just grab the next one from the list
-        PoolElement<PoolObjectType, PooledObject> nextInstance = pooledObjectList.FirstOrDefault(x => x.Key == poolObjectType);
-        pooledObjectList.Remove(nextInstance);
-        nextInstance.Value.gameObject.SetActive(true);
-        return nextInstance.Value;
+        //Make sure the object that is already in the pool.
+        else
+        {
+            // otherwise, just grab the next one from the list
+            PoolElement<PoolObjectType, PooledObject> nextInstance = pooledObjectList.FirstOrDefault(x => x.Key == poolObjectType);
+            pooledObjectList.Remove(nextInstance);
+            nextInstance.Value.gameObject.SetActive(true);
+            return nextInstance.Value;
+        }
+        
 
         
     }
 
     public void ReturnToPool(PooledObject pooledObject, PoolObjectType poolObjectType)
     {
-        //stack.Push(pooledObject);
+        
+        //Object must be in the pool
+        if(pooledObjectList.Exists(x=>x.Value == pooledObject))
+        {
+            //Destroy the object if pool is full
+            if (pooledObjectList.Count >= maxPoolSize)
+            {
+                Debug.LogWarning(pooledObject.gameObject.name + " is destroyed");
+                Destroy(pooledObject.gameObject);
+            }
+            //Return the object to the pool
+            else
+            {
+                Debug.LogWarning(pooledObject.gameObject.name + " is returned to the pool");
 
-        //Destroy the object if pool is full
-        if(pooledObjectList.Count >= maxPoolSize)
-        {
-            Debug.LogWarning(pooledObject.gameObject.name + " is destroyed");
-            Destroy(pooledObject.gameObject);
+                pooledObjectList.Add(new PoolElement<PoolObjectType, PooledObject> { Key = poolObjectType, Value = pooledObject });
+                pooledObject.gameObject.SetActive(false);
+            }
         }
-        //Return the object to the pool
-        else
-        {
-            Debug.LogWarning(pooledObject.gameObject.name + " is returned to the pool");
-            pooledObjectList.Add(new PoolElement<PoolObjectType, PooledObject> { Key = poolObjectType, Value = pooledObject });
-            pooledObject.gameObject.SetActive(false);
-        }
+        
         
     }
 }
