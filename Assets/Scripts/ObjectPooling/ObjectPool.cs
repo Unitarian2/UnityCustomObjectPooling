@@ -77,19 +77,19 @@ public class ObjectPool : Singleton<ObjectPool>
     public void ReturnToPool(PooledObject pooledObject, PoolObjectType poolObjectType)
     {
         
-        //Object must be in the pool
-        if(pooledObjectList.Exists(x=>x.Value == pooledObject))
+        //Object must not be in the pool
+        if(!pooledObjectList.Exists(x=>x.Value == pooledObject))
         {
             //Destroy the object if pool is full
             if (pooledObjectList.Count >= maxPoolSize)
             {
-                Debug.LogWarning(pooledObject.gameObject.name + " is destroyed");
+                //Debug.LogWarning(pooledObject.gameObject.name + " is destroyed");
                 Destroy(pooledObject.gameObject);
             }
             //Return the object to the pool
             else
             {
-                Debug.LogWarning(pooledObject.gameObject.name + " is returned to the pool");
+                //Debug.LogWarning(pooledObject.gameObject.name + " is returned to the pool");
 
                 pooledObjectList.Add(new PoolElement<PoolObjectType, PooledObject> { Key = poolObjectType, Value = pooledObject });
                 pooledObject.gameObject.SetActive(false);

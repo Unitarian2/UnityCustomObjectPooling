@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7294961188536844831}
   - component: {fileID: 2552447720898930558}
   - component: {fileID: 3586468058428264771}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BouncyBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba33bd40f09374246aa0f1a027c91342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 2204159426100518473}
+  poolObjectType: 0
 --- !u!114 &2552447720898930558
 MonoBehaviour:
   m_ObjectHideFlags: 0

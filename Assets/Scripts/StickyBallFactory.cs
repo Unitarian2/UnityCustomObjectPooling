@@ -9,7 +9,7 @@ public class StickyBallFactory : Factory
     public override IBallProduct GetProduct(Vector3 position)
     {
         PooledObject pooledObject = ObjectPool.Instance.GetPooledObject(productPrefab.GetComponent<PooledObject>(), PoolObjectType.StickyBall);
-        pooledObject.gameObject.transform.position = position;
+        pooledObject.gameObject.transform.localPosition = position;
         pooledObject.gameObject.transform.SetParent(spawnedBallParent);
         StickyBall newProduct = pooledObject.gameObject.GetComponent<StickyBall>();
 
