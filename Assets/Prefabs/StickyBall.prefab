@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3640751183563499515}
   - component: {fileID: -7511042785832141213}
   - component: {fileID: 3586468058428264771}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StickyBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

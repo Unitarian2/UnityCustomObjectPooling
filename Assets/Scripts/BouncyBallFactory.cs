@@ -11,7 +11,7 @@ public class BouncyBallFactory : Factory
     {
         //GameObject instance = Instantiate(productPrefab.gameObject, position, Quaternion.identity, spawnedBallParent);
         PooledObject pooledObject = ObjectPool.Instance.GetPooledObject(productPrefab.GetComponent<PooledObject>(),PoolObjectType.BouncyBall);
-        pooledObject.gameObject.transform.position = position;
+        pooledObject.gameObject.transform.localPosition = position;
         pooledObject.gameObject.transform.SetParent(spawnedBallParent);
         BouncyBall newProduct = pooledObject.gameObject.GetComponent<BouncyBall>();
         
