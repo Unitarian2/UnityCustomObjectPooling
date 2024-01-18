@@ -18,5 +18,9 @@ Class açıklamaları : <br><br>
 <b>IBallProduct.cs =></b> Her farklı top tipi IBallProduct implemente eder.<br><br>
 
 ---Managers---<br>
-<b>BallSpawner.cs =></b> Belirtilen hızda devamlı olarak rastgele bir top tipini spawn eder. Bunu yaparken Factory'lerden birini rastgele seçip GetProduct methodu ile spawn etme işlemini gerçekleştirir.
+<b>BallSpawner.cs =></b> Belirtilen hızda devamlı olarak rastgele bir top tipini spawn eder. Bunu yaparken Factory'lerden birini rastgele seçip GetProduct methodu ile spawn etme işlemini gerçekleştirir.<br><br>
+
+---Triggers---<br>
+<b>PocketTrigger.cs =></b> Topların bilardo masasında cebe girdiğini tespit eden sınıftır. Tespit edilen Gameobject PooledObject component'i üzerinden pool'a geri gönderilir.<br>
+<b>TableBoundariesTrigger.cs =></b> Topların bilardo masasının sınırları dışına çıktığını tespit eden sınıftır. Tespit edilen Gameobject PooledObject component'i üzerinden pool'a geri gönderilir.
 
