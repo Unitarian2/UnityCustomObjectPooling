@@ -7,6 +7,17 @@ https://assetstore.unity.com/packages/3d/props/8-ball-pool-game-assets-3d-pack-1
 
 Class açıklamaları : <br><br>
 
+---Pool Classes---<br>
+<b>PoolElement.cs =></b> Pool içerisinde PoolElement tipinde nesneler tutuyoruz. Yeni türde pool'lar oluşturmayı kolaylaştırmak adına Generic property'lere sahip şekilde tanımladık.
+<b>PooledObject.cs =></b> Pool edilen Gameobject datasıdır. Release fonksiyonu çalıştırıldığında ilgili Gameobject'i Pool listesine geri gönderir.
+
+---ObjectPool.cs---<br>
+Object Pool methodları açıklamaları aşağıdaki gibidir:<br>
+<b>pooledObjectList =></b> Pool Listesi. PoolObjectType'ı Key olarak kullanıyoruz. PooledObject ise Pool edilmiş GameObject datasını temsil eder.
+<b>SetupPool =></b> ObjectPool sınıfı ilk yüklendiğinde, initPoolSize kadar prefab'i önceden Instantiate edip Pool'a ekler ve bir ön yükleme yapar.
+<b>GetPooledObject =></b> Pool'dan verilen PoolObjectType'daki topu ilgili Factory'e gönderir. Eğer istenen PoolObjectType'da bir top yoksa yenisini Instantiate eder ve return eder, varsa pooledObjectList'den birtanesini alır ve return eder.
+<b>ReturnToPool =></b> Verilen topu pooledObjectList'e ekler ve gameobject'ini inactive yapar. Pool MaxSize'a ulaşmışsa Destroy eder. Duplicate olmaması için sadece pooledObjectList'de olmayan topu listeye geri alır.
+
 ---Factory Classes---<br>
 <b>Factory.cs =></b> Factory'ler için hazırlanan Base abstract class. Her farklı IBallProduct Factory'si GetProduct methodunu kullanır.<br>
 <b>BouncyBallFactory.cs =></b> BouncyBall tipinde bir prefab'i Pool'dan çağırır. Position ve Parent Object atamasını yapar. Son olarak Initialize methodunu çağırarak üretilen ürünün başlangıç methodu başlatılır. <br>
