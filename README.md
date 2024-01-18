@@ -8,7 +8,7 @@ https://assetstore.unity.com/packages/3d/props/8-ball-pool-game-assets-3d-pack-1
 Class açıklamaları : <br><br>
 
 ---Pool Classes---<br>
-<b>PoolElement.cs =></b> Pool içerisinde PoolElement tipinde nesneler tutuyoruz. Yeni türde pool'lar oluşturmayı kolaylaştırmak adına Generic property'lere sahip şekilde tanımladık.
+<b>PoolElement.cs =></b> Pool içerisinde PoolElement tipinde nesneler tutuyoruz. Yeni türde pool'lar oluşturmayı kolaylaştırmak adına Generic property'lere sahip şekilde tanımladık.<br>
 <b>PooledObject.cs =></b> Pool edilen Gameobject datasıdır. Release fonksiyonu çalıştırıldığında ilgili Gameobject'i Pool listesine geri gönderir.
 
 ---ObjectPool.cs---<br>
