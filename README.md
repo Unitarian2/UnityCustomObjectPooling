@@ -15,7 +15,7 @@ Class açıklamaları : <br><br>
 Object Pool methodları açıklamaları aşağıdaki gibidir:<br>
 <b>pooledObjectList =></b> Pool Listesi. PoolObjectType'ı Key olarak kullanıyoruz. PooledObject ise Pool edilmiş GameObject datasını temsil eder.<br>
 <b>SetupPool =></b> ObjectPool sınıfı ilk yüklendiğinde, initPoolSize kadar prefab'i önceden Instantiate edip Pool'a ekler ve bir ön yükleme yapar.<br>
-<b>GetPooledObject =></b> Pool'dan verilen PoolObjectType'daki topu ilgili Factory'e gönderir. Eğer istenen PoolObjectType'da bir top yoksa yenisini Instantiate eder ve return eder, varsa pooledObjectList'den birtanesini alır ve return eder.<br>
+<b>GetPooledObject =></b> Pool'dan verilen PoolObjectType'daki topu almak için kullanılır. Eğer istenen PoolObjectType'da bir top yoksa yenisini Instantiate eder ve return eder, varsa pooledObjectList'den birtanesini alır ve return eder.<br>
 <b>ReturnToPool =></b> Verilen topu pooledObjectList'e ekler ve gameobject'ini inactive yapar. Pool MaxSize'a ulaşmışsa Destroy eder. Duplicate olmaması için sadece pooledObjectList'de olmayan topu listeye geri alır.<br><br>
 
 ---Factory Classes---<br>
